@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-// Other using statements as needed
 
 public class Startup
 {
@@ -18,20 +17,20 @@ public class Startup
         services.AddCors(options =>
         {
             options.AddPolicy("AllowSpecificOrigin",
-                builder => builder.WithOrigins("http://localhost:3000")
+                builder => builder.WithOrigins("http://localhost:5205")
                                 .AllowAnyMethod()
                                 .AllowAnyHeader());
         });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-{
-    if (env.IsDevelopment())
     {
-        app.UseDeveloperExceptionPage();
-        app.UseCors("DevelopmentPolicy");
-    }
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseCors("DevelopmentPolicy");
+        }
 
-}
+    }
 }
 
