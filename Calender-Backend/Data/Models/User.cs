@@ -18,7 +18,7 @@ public class AuthDetails
 [Route("api/users")]
 public class UserController : ControllerBase
 {
-    private readonly User _context; // Replace YourDbContext with your actual DbContext
+    private readonly User _context;
 
     public UserController(User context)
     {
